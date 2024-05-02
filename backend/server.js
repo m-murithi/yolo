@@ -7,7 +7,7 @@ const upload = multer();
 const productRoute = require('./routes/api/productRoute');
 
 // Connecting to the Database
-let mongodb_url = 'mongodb://localhost/';
+let mongodb_url = 'mongodb+srv://Marvin:test123@moringa-week-4-cluster.kcbekzb.mongodb.net/?retryWrites=true&w=majority&appName=moringa-week-4-cluster';
 let dbName = 'yolomy';
 
 // define a url to connect to the database
