@@ -10,4 +10,13 @@
   - [ ] There is a screenshot of your deployed image on DockerHub, clearly showing the version of the image
 
  ### Set up:
- 
+1. Created a Mongo database and successfully added a product to the database
+
+![Screenshot of the added product in the database](assets/dbproduct.png)
+
+2. Added a product to the website, testing the basic functionality
+
+![Screenshot of the added product in the yolo website](assets/webproduct.png)
+
+### Tasks
+1. 
