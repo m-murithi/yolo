@@ -1,9 +1,25 @@
-FROM node:13-alpine
+# Stage 1: Build the application
+FROM node:16-alpine as build
 
-ENV PORT=3000
-WORKDIR /client
+WORKDIR /app/client
 
-COPY . /client/
+COPY ./package*.json ./
 RUN npm install
-EXPOSE ${PORT}
-CMD ["npm", "start"]
+COPY ./ .
+
+RUN npm run build
+
+# Stage 2: Create the production image
+FROM node:16-alpine
+
+WORKDIR /app/client
+
+RUN npm install -g serve
+
+# Copy the build artifacts from the previous stage
+COPY --from=build /app/client/build ./build
+COPY --from=build /app/client/package.json /app/client/package-lock.json ./
+
+EXPOSE 3000
+
+CMD ["serve", "-s", "build"]
