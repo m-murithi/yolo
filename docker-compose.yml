@@ -1,13 +1,15 @@
 version: "3.8"
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./backend
     ports:
       - "4567:4567"
     volumes:
       - ./backend
     networks:
       - yolo-net
+
   frontend:
     build: ./client
     ports:
@@ -16,19 +18,19 @@ services:
       - yolo-net
     volumes:
       - ./client
+
   mongodb:
     image: mongo:latest
     container_name: mongodb
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: Marvin
-      MONGO_INITDB_ROOT_PASSWORD: test123
     ports:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
+    networks:
+      - yolo-net
 
 networks: 
-  cruddur-net:
+  yolo-net:
     driver: bridge
     name: yolo-net
 
