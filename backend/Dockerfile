@@ -1,9 +1,9 @@
-FROM node:13-alpine
+FROM node:16-alpine
 
 ENV PORT=5000
-WORKDIR /backend
+WORKDIR /app/backend
 
-COPY . /backend/
+COPY ./ .
 RUN npm install
 EXPOSE ${PORT}
 CMD ["npm", "start"]
