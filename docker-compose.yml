@@ -1,18 +1,6 @@
 version: "3.8"
 
 services:
-  backend:
-    build: 
-      context: ./backend
-    ports:
-      - "4567:4567"
-    volumes:
-      - ./backend:/app
-    networks:
-      - yolo-net
-    depends_on:
-      - mongodb
-
   frontend:
     build: 
       context: ./client
@@ -20,14 +8,34 @@ services:
       - "3000:3000"
     networks:
       - yolo-net
-    volumes:
-      - ./client:/app
     depends_on:
       - backend
+    image: marvol0/yolo-frontend:v2.0.0
+
+  backend:
+    build: 
+      context: ./backend
+    ports:
+      - "4567:4567"
+    env_file:
+      - /workspaces/yolo/backend/.env
+    environment:
+      - MONGO_URI=mongodb://admin:password@moringa-week-4-cluster.kcbekzb.mongodb.net/?retryWrites=true&w=majority&appName=moringa-week-4-cluster
+    networks:
+      - yolo-net
+    depends_on:
+      - mongodb
+    image: marvol0/yolo-backend:v1.0.0
+    restart: always
 
   mongodb:
     image: mongo:latest
     container_name: mongodb
+    env_file:
+      - /workspaces/yolo/backend/.env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
     ports:
       - "27017:27017"
     volumes:
@@ -37,9 +45,7 @@ services:
 
 networks: 
   yolo-net:
-    #driver: bridge
-    #name: yolo-net
-    external: true
+    driver: bridge
 
 volumes:
   mongodb_data:
