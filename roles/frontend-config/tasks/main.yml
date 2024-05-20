@@ -20,9 +20,15 @@
         state: present
 
 - name: Build and run docker container
-  docker_compose:
-    project_src: "{{ docker_compose_directory }}"
-    state: present
+  docker_container:
+    name: client
+    image: "{{ docker_client_image }}"
+    state: started
+    restart_policy: always 
+    ports:
+      - "3000:3000"
+#    links:
+#     - backend
 
 - name: check application is running
   uri: 

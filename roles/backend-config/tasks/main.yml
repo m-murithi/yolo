@@ -15,9 +15,13 @@
       tags: clone_repo
 
 - name: Build and run docker container
-  docker_compose:
-    project_src: "{{ backend_app_directory }}"
-    state: present
+  docker_container:
+    name: backend 
+    image: "{{ docker_backend_image }}"
+    state: started
+    restart_policy: always 
+    ports:
+      - "5000:5000"
 
 - name: check application is running
   uri: 
