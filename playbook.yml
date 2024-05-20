@@ -12,7 +12,10 @@
     - name: Clone repository
       git:
         repo: "{{ github_repo }}"
-
+        update: yes
+        force: yes
+        clone: yes
+        version: master
   roles:
     - frontend-config
     - backend-config
