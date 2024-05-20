@@ -1,6 +1,6 @@
 github_repo: "https://github.com/m-murithi/yolo.git"
 mongodb_uri: "mongodb+srv://Marvin:test123@moringa-week-4-cluster.kcbekzb.mongodb.net/?retryWrites=true&w=majority&appName=moringa-week-4-cluster"
-prooject_src: "yolo"
+project_src: "yolo"
 frontend_app_directory: "/yolo/client/"
 docker_client_image: "marvol0/yolo-frontend:v2.0.0"
 backend_app_directory: "/yolo/backend/"
