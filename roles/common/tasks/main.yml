@@ -4,14 +4,14 @@
   apt: update_cache=yes
 
 
-- name: install common packages
+- name: install necessary packages for apt to use 
   apt: 
-    name:
+    pkg:
       - git
       - curl
-      - docker.io
-      - docker-compose
+      - apt-transport-https
     state: present
   tags: install_packages
+
 
 
