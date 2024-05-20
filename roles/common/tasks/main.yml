@@ -10,6 +10,8 @@
       - git
       - curl
       - apt-transport-https
+      - python3-pip
+      - python3-venv
     state: present
   tags: install_packages
 
