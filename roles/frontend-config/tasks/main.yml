@@ -21,7 +21,7 @@
 
 - name: Build and run docker container
   docker_compose:
-    project_src: "{{ frontend_app_directory }}"
+    project_src: "{{ docker_compose_directory }}"
     state: present
 
 - name: check application is running
