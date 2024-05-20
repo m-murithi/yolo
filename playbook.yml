@@ -1,5 +1,18 @@
 - hosts: all
   become: true
+  tasks:
+    - name: Install Dependencies
+      apt:
+        name: python3-pip
+        state: present
+    - name: Install Docker Pyhton SDK
+      pip:
+        name: docker==6.1.3
+        state: present 
+    - name: Clone repository
+      git:
+        repo: "{{ github_repo }}"
+
   roles:
     - frontend-config
     - backend-config
