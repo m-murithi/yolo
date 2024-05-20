@@ -1,0 +1,17 @@
+---
+
+- name: update apt cache
+  apt: update_cache=yes
+
+
+- name: install common packages
+  apt: 
+    name:
+      - git
+      - curl
+      - docker.io
+      - docker-compose
+    state: present
+  tags: install_packages
+
+
