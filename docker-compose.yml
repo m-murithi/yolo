@@ -6,6 +6,8 @@ services:
       context: ./client
     ports:
       - "3000:3000"
+    environment:
+      - REACT_APP_URL=http://backend:5000
     networks:
       - yolo-net
     depends_on:
@@ -16,7 +18,7 @@ services:
     build: 
       context: ./backend
     ports:
-      - "4567:4567"
+      - "5000:5000"
     env_file:
       - /workspaces/yolo/backend/.env
     environment:
