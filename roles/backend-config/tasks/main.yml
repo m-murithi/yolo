@@ -1,0 +1,31 @@
+---
+
+- name: backend setup
+  block:
+    - name: check app directory exists
+      file: 
+        path: "{{ backend_app_directory }}"
+        state: directory
+
+    - name: clone frontend application
+      git: 
+        repo: "{{ github_repo }}"
+        dest: "{{ backend_app_directory }}"
+        update: yes
+      tags: clone_repo
+
+- name: Build and run docker container
+  docker_compose:
+    project_src: "{{ backend_app_directory }}"
+    state: present
+
+- name: check application is running
+  uri: 
+    url: "http:localhost:4567"
+    return_content: yes
+    status_code: 200
+  register: result
+  retries: 5
+  delay: 10
+  until: result.status == 200
+  tags: verify_application
