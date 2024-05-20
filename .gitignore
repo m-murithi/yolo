@@ -1,2 +1,3 @@
-/.vagrant/**
+# ignore the .vagrant directory
+/.vagrant
 .vscode/
