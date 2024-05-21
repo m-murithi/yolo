@@ -1,7 +1,23 @@
+---
+
 - hosts: all
   become: true
+  vars_files:
+    - vars/main.yml
+
   roles:
     - frontend-config
     - backend-config
     - common
     - docker-config
+    - mongodb-config
+
+  tasks:
+    - name: Clone repository
+      git:
+        repo: "{{ github_repo }}"
+        dest: "{{ app_dir }}"
+        update: yes
+      tags: cloned
+
+    
