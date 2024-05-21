@@ -1,4 +1,5 @@
 ---
+
 - name: setup docker
   block:
   - name: Install docker-ce and docker-compose
@@ -21,4 +22,9 @@
       groups: docker
       append: yes
 
+  - name: Ensure Docker is started
+    service:
+      name: docker
+      state: started
+      enabled: yes
   tags: setup_docker
