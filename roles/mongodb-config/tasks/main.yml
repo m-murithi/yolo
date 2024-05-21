@@ -1,0 +1,16 @@
+---
+
+- name: mongodb setup
+  block:
+    - name: run mongodb container
+      docker_container:
+        name: "{{ mongodb_container_name }}"
+        state: started
+        ports:
+          - "{{ mongodb_port }}:27017"
+        volumes:
+          - /mongodb_data:/data/db
+
+  tags: mongodb
+
+  
