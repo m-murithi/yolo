@@ -6,9 +6,9 @@
     - vars/main.yml
 
   roles:
+    - common
     - frontend-config
     - backend-config
-    - common
     - docker-config
     - mongodb-config
 
