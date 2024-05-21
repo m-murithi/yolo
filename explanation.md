@@ -48,3 +48,31 @@
 ![](assets/imagespushedtohub.png)
 ![](assets/tag1.png)
 ![](assets/tag2.png)
+![](assets/mugproduct.png)
+
+
+# Week 6 IP 3
+### Overview
+The Ansible playbook for this project orchestrates the setup and configuration of various components required to deploy a full-stack application. It utilizes roles to modularize and manage specific tasks efficiently. Here's a breakdown of the roles included in the playbook:
+
+**Common Role**
+The common role handles common setup tasks required across all components. This includes updating the system package cache, installing necessary dependencies, and configuring basic system settings.
+
+**Frontend-Config Role**
+The frontend-config role is responsible for setting up the frontend environment. It involves configuring build tools, environment variables, and optimizing the frontend application for production deployment.
+
+**Backend-Config Role**
+The backend-config role focuses on configuring the backend environment. This involves tasks such as installing programming language runtimes (e.g., Node.js, Python, Java), setting up web servers or application servers (e.g., Nginx, Apache, Tomcat), and configuring backend frameworks or middleware.
+
+**Docker-Config Role**
+The docker-config role handles the setup and configuration of Docker and Docker Compose. It includes tasks to install Docker and Docker Compose, configure Docker networks and volumes, and manage Docker containers. This role enables containerization of both frontend and backend components for easier deployment and scalability.
+
+**MongoDB-Config Role**
+The mongodb-config role focuses on configuring MongoDB, a popular NoSQL database. It includes tasks to install MongoDB, set up database users and permissions. This role ensures the proper functioning and scalability of the database layer in the application architecture.
+
+![](assets/runningplaybook.png)
+
+### Playbook Structure
+The playbook organizes tasks into separate roles to promote modularity, reusability, and maintainability. Each role encapsulates a specific set of tasks related to its designated component, allowing for easier management and customization. The playbook can be easily extended or modified to accommodate additional components or configurations as needed.
+
+
