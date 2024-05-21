@@ -4,3 +4,5 @@ Oracle_VM_VirtualBox_Extension_Pack-7.0.14.vbox-extpack
 oracle_vbox_2016.gpg
 oracle_vbox.gpg
 vagrant_2.2.5_x86_64.deb
+.terraform
+.terraform.lock.hcl
