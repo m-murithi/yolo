@@ -2,10 +2,10 @@
 - List of objectives required to meet completion:
   - [x] Choice of the base image on which to build each container
   - [x] Dockerfile directives used in the creation and running of each container
-  - [ ] Docker-compose Networking (Application port allocation and bridge implementation) where necessary
-  - [ ] Docker-compose volume definition and usage (where necessary)
+  - [x] Docker-compose Networking (Application port allocation and bridge implementation) where necessary
+  - [x] Docker-compose volume definition and usage (where necessary)
   - [x] Git workflow used to achieve the task
-  - [ ] Successful running of the applications and if not, debugging measures applied
+  - [x] Successful running of the applications and if not, debugging measures applied
   - [x] Good practices such as Docker image tag naming standards for ease of identification of images and containers
   - [x] There is a screenshot of your deployed image on DockerHub, clearly showing the version of the image
 
@@ -50,6 +50,7 @@
 ![](assets/tag2.png)
 ![](assets/mugproduct.png)
 
+---
 
 # Week 6 IP 3
 ### Overview
@@ -75,4 +76,9 @@ The mongodb-config role focuses on configuring MongoDB, a popular NoSQL database
 ### Playbook Structure
 The playbook organizes tasks into separate roles to promote modularity, reusability, and maintainability. Each role encapsulates a specific set of tasks related to its designated component, allowing for easier management and customization. The playbook can be easily extended or modified to accommodate additional components or configurations as needed.
 
+![](assets/vagrantrun.png)
+
+---
+
+# Week 8 IP 4
 
