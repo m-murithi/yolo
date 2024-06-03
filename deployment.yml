@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: marvol0/yolo-frontend:v2.0.0
+        image: gcr.io/yolo-deploy-425312/yolo-frontend:latest
         ports:
         - containerPort: 3000
         resources:
@@ -25,7 +25,7 @@ spec:
             memory: "256Mi"
             cpu: "500m"
       - name: backend
-        image: marvol0/yolo-backend:v1.0.0
+        image: gcr.io/yolo-deploy-425312/yolo-backend:latest
         ports:
         - containerPort: 5000
         env:
