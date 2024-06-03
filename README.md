@@ -100,4 +100,70 @@ This playbook will execute the tasks defined in playbook.yml, including setting 
 5. Access the Application
 Once the playbook has been successfully executed, you can access the application by opening a web browser and navigating to the appropriate URL or port, depending on the project setup.
 
+### Getting started with Orchastration using Kubernetes
+1. Install and Configure Google Cloud SDK
+- Install Google Cloud SDK:
+ - Follow the instructions from the official Google Cloud SDK installation guide.
+
+- Initialize gcloud:
+```
+gcloud init
+```
+
+- Authenticate with Google Cloud
+```
+gcloud auth login
+```
+
+- Set the project
+```
+gcloud config set project YOUR_PROJECT_ID
+```
+
+2. Create a GKE Cluster
+- Create the Cluster:
+```
+gcloud container clusters create yolo-cluster --zone us-east1-b
+```
+
+- Get Cluster Credentials
+```
+gcloud container clusters get-credentials yolo-cluster --zone us-east1-b
+```
+
+3. Set Up Kubernetes Manifests
+- Deployment Manifests:
+  Create a deployment.yml file for the frontend and backend services, ensuring to include resource limits and any necessary configurations.
+
+- Service Manifests:
+  Create a service.yml file to expose your frontend and backend services. Use LoadBalancer for external access.
+
+- ConfigMap and Secret
+  Create configmap.yml and secret.yml to store MongoDB credentials.
+
+4. Deploy to GKE
+- Apply ConfigMap and Secret
+```
+kubectl apply -f configmap.yml
+kubectl apply -f secret.yml
+```
+
+- Deploy the Application
+```
+kubectl apply -f deployment.yml
+kubectl apply -f service.yml
+```
+
+- Verify Deployment
+  Ensure that all pods are running successfully:
+```
+kubectl get pods
+```
+
+- Get External IP:
+  Get the external IP address assigned to the LoadBalancer service
+```
+kubectl get services
+```
+
 **The process detailing steps taken can be found in explanation.md file on the root folder**
