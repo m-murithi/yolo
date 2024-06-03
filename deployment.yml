@@ -69,5 +69,5 @@ spec:
     app: yolo
   ports:
     - protocol: TCP
-      port: 5000
-      targetPort: 5000
+      port: 3000
+      targetPort: 3000
