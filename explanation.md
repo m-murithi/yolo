@@ -82,3 +82,28 @@ The playbook organizes tasks into separate roles to promote modularity, reusabil
 
 # Week 8 IP 4
 
+### Overview
+This document outlines the steps taken to deploy the YOLO application from the repository to Google Kubernetes Engine (GKE).
+The deployment includes the setup of Kubernetes objects, including ConfigMaps and Secrets for MongoDB credentials and the configuration of the application on Minikube before deploying it to GKE
+
+#### Choice of Kubernetes Objects 
+Used a StatefulSet for MongoDB to ensure each pod has a unique, persistent identity and stable storage. This is crucial for databases to ensure data consistency
+
+![](assets/minikubedashboard.png)
+
+![](assets/addstatefulset.png)
+
+#### Method to Expose Pods
+Used a 'LoadBalancer' service to expose the YOLO application to internet traffic. This allows us to get an external IP address to access the application
+
+#### Persistent Storage
+PersistentVolumeClaims (PVCs) in the StatefulSet for MongoDB to ensure data is stored persistently. This allows the database to retain data even if pods are restarted.
+
+#### Successful Deployment
+The application is successfully running on GKE. The live URL can be found in the README.md file of this repository.
+
+![](assets/yolocluster.png)
+
+#### Good Practices
+Followed best practices for Docker image naming, tagging images for easy identification and pulling. Also used environment variables to manage sensitive data securely.
+
