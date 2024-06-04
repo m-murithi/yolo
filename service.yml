@@ -7,7 +7,7 @@ spec:
     app: yolo
   ports:
     - protocol: TCP
-      port: 3000
+      port: 80
       targetPort: 3000
   type: LoadBalancer
 
@@ -24,3 +24,15 @@ spec:
       port: 5000
       targetPort: 5000
   type: LoadBalancer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-service
+spec:
+  ports:
+    - port: 27017
+  clusterIP: None
+  selector:
+    app: mongo
